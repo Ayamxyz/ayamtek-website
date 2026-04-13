@@ -359,34 +359,37 @@
       color: var(--ink-dim);
     }
 
-    /* ── MARQUEE — dual row crossing ────────────────────── */
+    /* ── MARQUEE — crossed ribbon strips ────────────────── */
     .marquee-wrap {
       position: relative; z-index: 2;
+      height: 72px;
+      overflow: hidden;
+      /* Vertical clip so ribbons don't bleed outside */
+    }
+    /* Each ribbon is a full-width solid band, rotated to cross */
+    .marquee-ribbon {
+      position: absolute;
+      left: -8%; width: 116%;       /* wider than viewport so rotation doesn't expose gaps */
+      padding: 11px 0;
       border-top: 1px solid var(--border);
       border-bottom: 1px solid var(--border);
       background: var(--bg);
-      height: 54px;
       overflow: hidden;
-      /* Edge fade for clean entry/exit */
-      -webkit-mask-image: linear-gradient(90deg, transparent 0%, #000 7%, #000 93%, transparent 100%);
-      mask-image:         linear-gradient(90deg, transparent 0%, #000 7%, #000 93%, transparent 100%);
+    }
+    .marquee-ribbon.fwd-ribbon {
+      top: 50%; transform: translateY(-68%) rotate(-2.4deg);
+      z-index: 2;
+    }
+    .marquee-ribbon.rev-ribbon {
+      top: 50%; transform: translateY(-32%) rotate(2.4deg);
+      z-index: 1;
     }
     .marquee-track {
       display: flex; white-space: nowrap;
-      position: absolute; left: 0;
       align-items: center;
     }
-    /* Row 1 — front layer, moves left */
-    .marquee-track.fwd {
-      top: 7px;
-      animation: ticker-fwd 42s linear infinite;
-    }
-    /* Row 2 — back layer, moves right, slightly dimmer */
-    .marquee-track.rev {
-      bottom: 7px;
-      animation: ticker-rev 48s linear infinite;
-      opacity: 0.48;
-    }
+    .marquee-track.fwd { animation: ticker-fwd 42s linear infinite; }
+    .marquee-track.rev { animation: ticker-rev 48s linear infinite; }
     .marquee-set {
       display: inline-flex; align-items: center; flex-shrink: 0;
     }
@@ -652,7 +655,7 @@
     @media (prefers-reduced-motion: reduce) {
       .anim, .sr { animation: none !important; opacity: 1; transform: none; transition: none; filter: none; }
       .w { animation: none !important; opacity: 1; transform: none; }
-      .marquee-track { animation: none; }
+      .marquee-track { animation: none !important; }
       .ghost-num { animation: none; }
       .bg-shape { animation: none; }
       .progress-fill { width: 55% !important; animation: none !important; }
@@ -768,51 +771,55 @@
     <!-- ── MARQUEE ──────────────────────────────────────────── -->
     <div class="marquee-wrap" aria-hidden="true">
 
-      <!-- Row 1 — left → right -->
-      <div class="marquee-track fwd">
-        <div class="marquee-set">
-          <span class="mi mi-blue">Ayamtek <span class="msep">◆</span></span>
-          <span class="mi">Digital Transformation <span class="msep">◆</span></span>
-          <span class="mi">AI-Powered Solutions <span class="msep">◆</span></span>
-          <span class="mi">World-Class Execution <span class="msep">◆</span></span>
-          <span class="mi">Full-Stack Digital Agency <span class="msep">◆</span></span>
-          <span class="mi">Purpose-Built Platforms <span class="msep">◆</span></span>
-          <span class="mi">Measurable Results <span class="msep">◆</span></span>
-          <span class="mi">Outcome-Led Delivery <span class="msep">◆</span></span>
-        </div>
-        <div class="marquee-set">
-          <span class="mi mi-blue">Ayamtek <span class="msep">◆</span></span>
-          <span class="mi">Digital Transformation <span class="msep">◆</span></span>
-          <span class="mi">AI-Powered Solutions <span class="msep">◆</span></span>
-          <span class="mi">World-Class Execution <span class="msep">◆</span></span>
-          <span class="mi">Full-Stack Digital Agency <span class="msep">◆</span></span>
-          <span class="mi">Purpose-Built Platforms <span class="msep">◆</span></span>
-          <span class="mi">Measurable Results <span class="msep">◆</span></span>
-          <span class="mi">Outcome-Led Delivery <span class="msep">◆</span></span>
+      <!-- Ribbon 1 — tilted -2.4°, scrolls left -->
+      <div class="marquee-ribbon fwd-ribbon">
+        <div class="marquee-track fwd">
+          <div class="marquee-set">
+            <span class="mi mi-blue">Ayamtek <span class="msep">◆</span></span>
+            <span class="mi">Digital Transformation <span class="msep">◆</span></span>
+            <span class="mi">AI-Powered Solutions <span class="msep">◆</span></span>
+            <span class="mi">World-Class Execution <span class="msep">◆</span></span>
+            <span class="mi">Full-Stack Digital Agency <span class="msep">◆</span></span>
+            <span class="mi">Purpose-Built Platforms <span class="msep">◆</span></span>
+            <span class="mi">Measurable Results <span class="msep">◆</span></span>
+            <span class="mi">Outcome-Led Delivery <span class="msep">◆</span></span>
+          </div>
+          <div class="marquee-set">
+            <span class="mi mi-blue">Ayamtek <span class="msep">◆</span></span>
+            <span class="mi">Digital Transformation <span class="msep">◆</span></span>
+            <span class="mi">AI-Powered Solutions <span class="msep">◆</span></span>
+            <span class="mi">World-Class Execution <span class="msep">◆</span></span>
+            <span class="mi">Full-Stack Digital Agency <span class="msep">◆</span></span>
+            <span class="mi">Purpose-Built Platforms <span class="msep">◆</span></span>
+            <span class="mi">Measurable Results <span class="msep">◆</span></span>
+            <span class="mi">Outcome-Led Delivery <span class="msep">◆</span></span>
+          </div>
         </div>
       </div>
 
-      <!-- Row 2 — right → left (reverse) -->
-      <div class="marquee-track rev">
-        <div class="marquee-set">
-          <span class="mi">Design That Converts <span class="msep">◆</span></span>
-          <span class="mi mi-blue">More Than Just Tech <span class="msep">◆</span></span>
-          <span class="mi">Built for Growth <span class="msep">◆</span></span>
-          <span class="mi">Strategic · Creative · Technical <span class="msep">◆</span></span>
-          <span class="mi">Innovation at Scale <span class="msep">◆</span></span>
-          <span class="mi">Trusted Globally <span class="msep">◆</span></span>
-          <span class="mi">Brands That Mean Business <span class="msep">◆</span></span>
-          <span class="mi">Precision-Crafted Experiences <span class="msep">◆</span></span>
-        </div>
-        <div class="marquee-set">
-          <span class="mi">Design That Converts <span class="msep">◆</span></span>
-          <span class="mi mi-blue">More Than Just Tech <span class="msep">◆</span></span>
-          <span class="mi">Built for Growth <span class="msep">◆</span></span>
-          <span class="mi">Strategic · Creative · Technical <span class="msep">◆</span></span>
-          <span class="mi">Innovation at Scale <span class="msep">◆</span></span>
-          <span class="mi">Trusted Globally <span class="msep">◆</span></span>
-          <span class="mi">Brands That Mean Business <span class="msep">◆</span></span>
-          <span class="mi">Precision-Crafted Experiences <span class="msep">◆</span></span>
+      <!-- Ribbon 2 — tilted +2.4°, scrolls right -->
+      <div class="marquee-ribbon rev-ribbon">
+        <div class="marquee-track rev">
+          <div class="marquee-set">
+            <span class="mi">Design That Converts <span class="msep">◆</span></span>
+            <span class="mi mi-blue">More Than Just Tech <span class="msep">◆</span></span>
+            <span class="mi">Built for Growth <span class="msep">◆</span></span>
+            <span class="mi">Strategic · Creative · Technical <span class="msep">◆</span></span>
+            <span class="mi">Innovation at Scale <span class="msep">◆</span></span>
+            <span class="mi">Trusted Globally <span class="msep">◆</span></span>
+            <span class="mi">Brands That Mean Business <span class="msep">◆</span></span>
+            <span class="mi">Precision-Crafted Experiences <span class="msep">◆</span></span>
+          </div>
+          <div class="marquee-set">
+            <span class="mi">Design That Converts <span class="msep">◆</span></span>
+            <span class="mi mi-blue">More Than Just Tech <span class="msep">◆</span></span>
+            <span class="mi">Built for Growth <span class="msep">◆</span></span>
+            <span class="mi">Strategic · Creative · Technical <span class="msep">◆</span></span>
+            <span class="mi">Innovation at Scale <span class="msep">◆</span></span>
+            <span class="mi">Trusted Globally <span class="msep">◆</span></span>
+            <span class="mi">Brands That Mean Business <span class="msep">◆</span></span>
+            <span class="mi">Precision-Crafted Experiences <span class="msep">◆</span></span>
+          </div>
         </div>
       </div>
 
