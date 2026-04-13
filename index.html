@@ -359,34 +359,47 @@
       color: var(--ink-dim);
     }
 
-    /* ── MARQUEE — dual row ──────────────────────────────── */
+    /* ── MARQUEE — dual row crossing ────────────────────── */
     .marquee-wrap {
       position: relative; z-index: 2;
       border-top: 1px solid var(--border);
       border-bottom: 1px solid var(--border);
-      overflow: hidden;
-      padding: 12px 0;
       background: var(--bg);
-      display: flex; flex-direction: column; gap: 10px;
+      height: 54px;
+      overflow: hidden;
+      /* Edge fade for clean entry/exit */
+      -webkit-mask-image: linear-gradient(90deg, transparent 0%, #000 7%, #000 93%, transparent 100%);
+      mask-image:         linear-gradient(90deg, transparent 0%, #000 7%, #000 93%, transparent 100%);
     }
     .marquee-track {
       display: flex; white-space: nowrap;
+      position: absolute; left: 0;
+      align-items: center;
     }
-    .marquee-track.fwd { animation: ticker-fwd 42s linear infinite; }
-    .marquee-track.rev { animation: ticker-rev 48s linear infinite; }
+    /* Row 1 — front layer, moves left */
+    .marquee-track.fwd {
+      top: 7px;
+      animation: ticker-fwd 42s linear infinite;
+    }
+    /* Row 2 — back layer, moves right, slightly dimmer */
+    .marquee-track.rev {
+      bottom: 7px;
+      animation: ticker-rev 48s linear infinite;
+      opacity: 0.48;
+    }
     .marquee-set {
       display: inline-flex; align-items: center; flex-shrink: 0;
     }
     .mi {
-      display: inline-flex; align-items: center; gap: 24px;
-      padding: 0 28px;
+      display: inline-flex; align-items: center; gap: 22px;
+      padding: 0 26px;
       font-family: 'Plus Jakarta Sans', sans-serif;
-      font-size: 9.5px; font-weight: 600;
+      font-size: 9px; font-weight: 600;
       letter-spacing: 0.18em; text-transform: uppercase;
       color: var(--ink-dim);
     }
-    .mi-blue { color: var(--blue); opacity: 0.7; }
-    .msep { color: var(--blue); opacity: 0.40; font-size: 7px; }
+    .mi-blue { color: var(--blue); opacity: 0.75; }
+    .msep { color: var(--blue); opacity: 0.35; font-size: 6px; }
     @keyframes ticker-fwd {
       from { transform: translateX(0); }
       to   { transform: translateX(-50%); }
