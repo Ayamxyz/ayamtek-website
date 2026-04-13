@@ -1,0 +1,1004 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ayamtek — Scheduled Maintenance</title>
+  <meta name="description" content="Ayamtek is upgrading to global standard. Reach us via WhatsApp, email, phone, or book a free strategy call." />
+  <meta name="robots"             content="index, follow" />
+  <link rel="canonical"           href="https://ayamtek.webflow.io/" />
+  <meta property="og:type"        content="website" />
+  <meta property="og:url"         content="https://ayamtek.webflow.io/" />
+  <meta property="og:title"       content="Ayamtek — We're Building Something Better" />
+  <meta property="og:description" content="Our site is temporarily offline while we upgrade. Reach Ayamtek directly — response guaranteed within 24 hours." />
+  <meta property="og:site_name"   content="Ayamtek" />
+  <meta name="twitter:card"       content="summary_large_image" />
+  <meta name="twitter:site"       content="@ayamtekxyz" />
+  <meta name="twitter:title"      content="Ayamtek — We're Building Something Better" />
+  <meta name="twitter:description" content="Our site is temporarily offline while we upgrade. Reach Ayamtek directly — response guaranteed within 24 hours." />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Ayamtek",
+    "url": "https://ayamtek.webflow.io/",
+    "logo": "https://ayamtek.webflow.io/logo.svg",
+    "description": "Global digital solutions company. AI-enhanced delivery. Rooted in Africa, built for the world.",
+    "contactPoint": [
+      { "@type": "ContactPoint", "telephone": "+2349028548117", "contactType": "customer service", "availableLanguage": "English" }
+    ],
+    "sameAs": [
+      "https://www.instagram.com/ayamtek.xyz",
+      "https://linkedin.com/company/ayamtek-xyz",
+      "https://twitter.com/ayamtekxyz",
+      "https://web.facebook.com/ayamtek.xyz"
+    ]
+  }
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@600;700;800&family=Inter:wght@300;400&display=swap" rel="stylesheet" />
+
+  <style>
+    /* ── BRAND SYSTEM v3.0 — LIGHT MODE ─────────────────── */
+    :root {
+      --bg:           #FAF7F0;
+      --bg2:          #F5F0E4;
+      --bg3:          #EDE8DA;
+      --ink:          #0F0E0A;
+      --ink-mid:      rgba(15,14,10,0.58);
+      --ink-dim:      rgba(15,14,10,0.34);
+      --blue:         #101981;
+      --blue2:        #1a24a8;
+      --blue-dim:     rgba(16,25,129,0.07);
+      --blue-mid:     rgba(16,25,129,0.14);
+      --blue-border:  rgba(16,25,129,0.20);
+      --blue-glow:    rgba(16,25,129,0.14);
+      --amber:        #C8860A;           /* tagline only */
+      --white:        #FFFFFF;
+      --border:       rgba(15,14,10,0.09);
+      --card-bg:      #FFFFFF;
+      --stone:        #807A6A;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--bg);
+      color: var(--ink);
+      font-family: 'Inter', sans-serif;
+      font-size: 16px;
+      line-height: 1.8;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    /* ── CONTAINER — consistent width everywhere ─────────── */
+    .container {
+      width: 100%;
+      max-width: 1160px;
+      margin: 0 auto;
+      padding: 0 48px;
+    }
+
+    /* ── ANIMATED BACKGROUND SHAPES ─────────────────────── */
+    .bg-shapes {
+      position: fixed; inset: 0; z-index: 0;
+      pointer-events: none; overflow: hidden;
+    }
+    .bg-shape {
+      position: absolute; border-radius: 50%;
+      background: var(--blue-dim);
+      animation: floatShape ease-in-out infinite;
+    }
+    .bg-shape:nth-child(1) {
+      width: 380px; height: 380px; top: -100px; right: 8%;
+      animation-duration: 22s; opacity: 0.8;
+    }
+    .bg-shape:nth-child(2) {
+      width: 220px; height: 220px; top: 52%; left: -70px;
+      animation-duration: 29s; opacity: 0.5; animation-delay: -9s;
+    }
+    .bg-shape:nth-child(3) {
+      width: 160px; height: 160px; bottom: 18%; right: 18%;
+      animation-duration: 19s; opacity: 0.4; animation-delay: -15s;
+    }
+    .bg-shape:nth-child(4) {
+      width: 90px; height: 90px; top: 38%; right: 35%;
+      animation-duration: 16s; opacity: 0.3; animation-delay: -5s;
+    }
+    @keyframes floatShape {
+      0%, 100% { transform: translateY(0px) rotate(0deg) scale(1); }
+      33%       { transform: translateY(-28px) rotate(12deg) scale(1.04); }
+      66%       { transform: translateY(18px) rotate(-8deg) scale(0.97); }
+    }
+
+    /* Noise grain */
+    .bg-noise {
+      position: fixed; inset: 0; z-index: 0; pointer-events: none; opacity: 0.22;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='250' height='250'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.78' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.07'/%3E%3C/svg%3E");
+    }
+
+
+    /* ── NAV — dark ─────────────────────────────────────── */
+    .nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 50;
+      height: 72px;
+      background: rgba(15,14,10,0.96);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+    .nav-inner {
+      height: 100%;
+      display: flex; align-items: center; justify-content: space-between;
+    }
+
+    .logo {
+      display: flex; align-items: center; gap: 11px;
+      text-decoration: none; color: inherit;
+    }
+    .logo-svg { width: 34px; height: 34px; flex-shrink: 0; }
+    .logo-text { display: flex; flex-direction: column; gap: 2px; }
+    .logo-name {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 13px; font-weight: 800;
+      letter-spacing: 0.07em; text-transform: uppercase;
+      color: #ffffff; line-height: 1;
+    }
+    .logo-tagline {
+      font-family: 'Inter', sans-serif;
+      font-size: 9.5px; font-weight: 300; font-style: normal;
+      color: rgba(255,255,255,0.38); letter-spacing: 0.02em; line-height: 1;
+    }
+
+    /* Nav CTA button */
+    .nav-cta {
+      display: inline-flex; align-items: center;
+      padding: 10px 22px;
+      background: var(--blue);
+      border-radius: 0;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 11px; font-weight: 700;
+      letter-spacing: 0.05em;
+      color: #ffffff;
+      text-decoration: none;
+      transition: background 0.22s ease, transform 0.22s cubic-bezier(0.34,1.56,0.64,1), box-shadow 0.22s ease;
+      white-space: nowrap;
+    }
+    .nav-cta:hover {
+      background: var(--blue2);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(16,25,129,0.35);
+    }
+    .nav-cta:active { transform: translateY(0); transition-duration: 0.1s; }
+
+    /* ── HERO ────────────────────────────────────────────── */
+    .hero {
+      position: relative; z-index: 2;
+      min-height: 100vh;
+      display: flex; flex-direction: column; justify-content: center;
+      padding-top: 140px; padding-bottom: 100px;
+      overflow: hidden;
+    }
+
+    /* Ghost section number */
+    .ghost-num {
+      position: absolute;
+      right: -3%; top: 50%;
+      transform: translateY(-54%);
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: clamp(180px, 27vw, 420px);
+      font-weight: 800; line-height: 1;
+      letter-spacing: -0.06em;
+      color: var(--blue); opacity: 0.038;
+      user-select: none; pointer-events: none;
+      animation: ghostDrift 14s ease-in-out infinite;
+    }
+    @keyframes ghostDrift {
+      0%, 100% { transform: translateY(-54%) translateX(0px); }
+      50%       { transform: translateY(-52%) translateX(-14px); }
+    }
+
+    /* Eyebrow chip */
+    .chip {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 6px 14px; border-radius: 0;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 9.5px; font-weight: 600;
+      letter-spacing: 0.14em; text-transform: uppercase;
+      width: fit-content;
+    }
+    .chip-blue {
+      background: var(--blue-dim);
+      border: 1px solid var(--blue-border);
+      color: var(--blue);
+    }
+    .cdot { width: 6px; height: 6px; border-radius: 50%; flex-shrink: 0; }
+    .cdot-blue { background: var(--blue); }
+
+    /* Headline */
+    .h1 {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: clamp(54px, 9vw, 110px);
+      font-weight: 800;
+      line-height: 0.95;
+      letter-spacing: -0.046em;
+      color: var(--ink);
+      margin: 28px 0 28px;
+    }
+    .h1 .accent { color: var(--blue); }
+
+    .hero-sub {
+      font-family: 'Inter', sans-serif;
+      font-size: 18px; font-weight: 400; line-height: 1.85;
+      color: var(--ink-mid);
+      max-width: 520px;
+      margin-bottom: 36px;
+    }
+
+    .tagline-text {
+      font-family: 'Inter', sans-serif;
+      font-size: 12px; font-weight: 300; font-style: italic;
+      color: var(--amber); letter-spacing: 0.04em;
+    }
+
+    /* Progress bar */
+    .progress-wrap {
+      margin-top: 44px;
+      max-width: 480px;
+      display: flex; align-items: center; gap: 24px;
+    }
+    .progress-track { flex: 1; }
+    .progress-label {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 10px; font-weight: 600;
+      letter-spacing: 0.14em; text-transform: uppercase;
+      color: var(--ink-dim);
+      margin-bottom: 11px;
+    }
+    .progress-bar {
+      height: 3px; background: var(--bg3); border-radius: 0; overflow: hidden;
+    }
+    .progress-fill {
+      height: 100%; width: 0;
+      background: linear-gradient(90deg, var(--blue), var(--blue2));
+      border-radius: 0;
+      animation: progressLoad 2.8s 0.85s cubic-bezier(0.16,1,0.3,1) forwards;
+    }
+    @keyframes progressLoad { to { width: 55%; } }
+    .progress-pct {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 38px; font-weight: 800;
+      letter-spacing: -0.04em; line-height: 1;
+      color: var(--blue);
+      font-variant-numeric: tabular-nums;
+      min-width: 72px; text-align: right;
+      flex-shrink: 0;
+      transition: transform 0.3s cubic-bezier(0.34,1.56,0.64,1);
+    }
+    .progress-pct.pop { transform: scale(1.12); }
+
+    /* Hero CTA buttons */
+    .hero-actions {
+      display: flex; align-items: center; gap: 14px;
+      flex-wrap: wrap;
+      margin-top: 28px;
+    }
+    .hero-btn {
+      display: inline-flex; align-items: center; gap: 10px;
+      padding: 15px 32px;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 13px; font-weight: 700;
+      letter-spacing: 0.03em;
+      text-decoration: none;
+      border-radius: 0;
+      transition: background 0.22s ease, transform 0.22s cubic-bezier(0.34,1.56,0.64,1), box-shadow 0.22s ease;
+      white-space: nowrap;
+    }
+    .hero-btn:active { transform: translateY(0) !important; transition-duration: 0.1s; }
+    .hero-btn-primary {
+      background: var(--blue);
+      color: #ffffff;
+      border: 1px solid transparent;
+    }
+    .hero-btn-primary:hover {
+      background: var(--blue2);
+      transform: translateY(-3px);
+      box-shadow: 0 14px 36px rgba(16,25,129,0.30);
+    }
+    .hero-btn-ghost {
+      background: transparent;
+      color: var(--blue);
+      border: 1px solid var(--blue-border);
+    }
+    .hero-btn-ghost:hover {
+      background: var(--blue-dim);
+      transform: translateY(-3px);
+      border-color: rgba(16,25,129,0.35);
+    }
+    .btn-arrow {
+      display: flex; align-items: center;
+      transition: transform 0.22s cubic-bezier(0.34,1.56,0.64,1);
+    }
+    .hero-btn-primary:hover .btn-arrow { transform: translateX(4px); }
+
+
+    /* Scroll-down arrow */
+    .scroll-cue {
+      position: absolute; bottom: 48px; left: 50%;
+      transform: translateX(-50%);
+      display: flex; flex-direction: column; align-items: center; gap: 9px;
+      text-decoration: none;
+      opacity: 0;
+      animation: fadeUp 0.6s 1.4s ease forwards;
+    }
+    .scroll-arrow {
+      width: 42px; height: 42px;
+      border: 1px solid var(--blue-border);
+      background: var(--blue-dim);
+      display: flex; align-items: center; justify-content: center;
+      color: var(--blue);
+      animation: bounceDown 2.4s 2.4s ease-in-out infinite;
+      transition: background 0.2s, border-color 0.2s;
+    }
+    .scroll-cue:hover .scroll-arrow {
+      background: var(--blue-mid);
+      border-color: rgba(16,25,129,0.45);
+    }
+    @keyframes bounceDown {
+      0%, 100% { transform: translateY(0); }
+      50%       { transform: translateY(8px); }
+    }
+    .scroll-cue-label {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 8.5px; font-weight: 600;
+      letter-spacing: 0.16em; text-transform: uppercase;
+      color: var(--ink-dim);
+    }
+
+    /* ── MARQUEE — dual row ──────────────────────────────── */
+    .marquee-wrap {
+      position: relative; z-index: 2;
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      overflow: hidden;
+      padding: 12px 0;
+      background: var(--bg);
+      display: flex; flex-direction: column; gap: 10px;
+    }
+    .marquee-track {
+      display: flex; white-space: nowrap;
+    }
+    .marquee-track.fwd { animation: ticker-fwd 42s linear infinite; }
+    .marquee-track.rev { animation: ticker-rev 48s linear infinite; }
+    .marquee-set {
+      display: inline-flex; align-items: center; flex-shrink: 0;
+    }
+    .mi {
+      display: inline-flex; align-items: center; gap: 24px;
+      padding: 0 28px;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 9.5px; font-weight: 600;
+      letter-spacing: 0.18em; text-transform: uppercase;
+      color: var(--ink-dim);
+    }
+    .mi-blue { color: var(--blue); opacity: 0.7; }
+    .msep { color: var(--blue); opacity: 0.40; font-size: 7px; }
+    @keyframes ticker-fwd {
+      from { transform: translateX(0); }
+      to   { transform: translateX(-50%); }
+    }
+    @keyframes ticker-rev {
+      from { transform: translateX(-50%); }
+      to   { transform: translateX(0); }
+    }
+
+    /* ── CONTACT SECTION ──────────────────────────────────── */
+    .contact {
+      position: relative; z-index: 2;
+      padding-top: 112px; padding-bottom: 80px;
+    }
+    .section-head { margin-bottom: 60px; }
+
+    .h2 {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: clamp(40px, 5.5vw, 74px);
+      font-weight: 800;
+      letter-spacing: -0.042em; line-height: 0.97;
+      color: var(--ink);
+      margin: 20px 0 18px;
+    }
+    .sec-body {
+      font-family: 'Inter', sans-serif;
+      font-size: 17px; color: var(--ink-mid); line-height: 1.85;
+      max-width: 480px;
+    }
+
+    /* ── CONTACT LAYOUT — editorial split ───────────────────── */
+    .contact-layout {
+      display: grid;
+      grid-template-columns: 300px 1fr;
+      gap: 80px;
+      align-items: start;
+    }
+    .contact-aside {
+      position: sticky;
+      top: 104px;
+    }
+    .contact-aside .h2 { max-width: 280px; }
+    .contact-aside .sec-body { max-width: 280px; font-size: 15px; margin-top: 4px; }
+
+    /* ghost "02" in contact aside */
+    .contact-ghost {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 96px; font-weight: 800; line-height: 1;
+      letter-spacing: -0.06em;
+      color: var(--blue); opacity: 0.055;
+      user-select: none; pointer-events: none;
+      margin-top: 32px;
+    }
+
+    /* ── CONTACT ROWS ────────────────────────────────────────── */
+    .contact-list { border-top: 1px solid var(--border); }
+
+    .crow {
+      display: flex; align-items: center; gap: 20px;
+      padding: 28px 0;
+      border: none; border-bottom: 1px solid var(--border);
+      text-decoration: none; color: var(--ink);
+      background: transparent;
+      cursor: pointer; width: 100%; text-align: left;
+      position: relative;
+      transition: padding-left 0.28s cubic-bezier(0.22,1,0.36,1);
+    }
+    .crow:hover { padding-left: 8px; }
+    .crow:active { opacity: 0.75; transition-duration: 0.1s; }
+
+    /* Blue left-edge reveal on hover */
+    .crow::before {
+      content: ''; position: absolute;
+      left: 0; top: 8px; bottom: 8px; width: 0;
+      background: var(--blue);
+      transition: width 0.28s cubic-bezier(0.22,1,0.36,1);
+    }
+    .crow:hover::before { width: 2px; }
+    .crow-book.active::before { width: 2px; }
+
+    .crow-icon {
+      width: 44px; height: 44px;
+      border-radius: 0;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+      transition: transform 0.3s cubic-bezier(0.34,1.56,0.64,1);
+    }
+    .crow:hover .crow-icon { transform: scale(1.06); }
+
+    .crow-body { flex: 1; min-width: 0; }
+    .crow-label {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 10px; font-weight: 600;
+      letter-spacing: 0.13em; text-transform: uppercase;
+      color: var(--ink-dim); margin-bottom: 5px;
+    }
+    .crow-title {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 21px; font-weight: 700;
+      letter-spacing: -0.025em; line-height: 1.2;
+      color: var(--ink);
+      transition: color 0.2s;
+    }
+    .crow:hover .crow-title { color: var(--blue); }
+
+    .crow-arrow {
+      width: 40px; height: 40px;
+      border: 1px solid var(--border);
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0; color: var(--ink-dim);
+      transition: transform 0.3s cubic-bezier(0.34,1.56,0.64,1),
+                  background 0.2s, border-color 0.2s, color 0.2s;
+    }
+    .crow:hover .crow-arrow {
+      transform: translateX(5px);
+      background: var(--blue-dim);
+      border-color: var(--blue-border);
+      color: var(--blue);
+    }
+
+    /* Book call row */
+    .crow-book .crow-icon { background: var(--blue-dim); border: 1px solid var(--blue-border); }
+
+    /* WhatsApp */
+    .crow-wa .crow-icon  { background: rgba(37,211,102,0.08); border: 1px solid rgba(37,211,102,0.14); }
+    .crow-wa:hover .crow-arrow { background: rgba(37,211,102,0.08); border-color: rgba(37,211,102,0.22); color: #25d366; }
+    .crow-wa:hover .crow-title { color: var(--ink); }
+    .crow-wa:hover::before { background: #25d366; }
+
+    /* Email */
+    .crow-email .crow-icon { background: var(--blue-dim); border: 1px solid var(--blue-border); }
+
+    /* Call */
+    .crow-call .crow-icon { background: rgba(15,14,10,0.04); border: 1px solid var(--border); }
+    .crow-call:hover .crow-title { color: var(--ink); }
+
+    /* ── FOOTER ──────────────────────────────────────────── */
+    .footer-rule { position: relative; z-index: 2; border-top: 1px solid var(--border); }
+    .footer {
+      position: relative; z-index: 2;
+      padding-top: 32px; padding-bottom: 32px;
+    }
+    .footer-inner {
+      display: flex; align-items: center; justify-content: space-between; gap: 16px;
+    }
+    .footer-left {
+      display: flex; align-items: center; gap: 10px; flex-wrap: wrap;
+      font-family: 'Inter', sans-serif;
+      font-size: 14px; color: var(--ink-dim);
+    }
+    .footer-name {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 14px; font-weight: 700;
+      letter-spacing: 0.01em;
+      color: var(--ink-mid);
+    }
+    .fsep { color: var(--border); margin: 0 2px; }
+    .footer-tag {
+      font-family: 'Inter', sans-serif;
+      font-size: 14px; font-style: normal; font-weight: 400;
+      color: var(--ink); opacity: 0.75;
+    }
+    .footer-links { display: flex; align-items: center; gap: 24px; }
+    .footer-links a {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 12px; font-weight: 600;
+      letter-spacing: 0.10em; text-transform: uppercase;
+      color: var(--ink-dim); text-decoration: none;
+      transition: color 0.18s;
+    }
+    .footer-links a:hover { color: var(--ink); }
+
+    /* ── ANIMATIONS ──────────────────────────────────────── */
+    .anim {
+      opacity: 0; transform: translateY(22px);
+      animation: fadeUp 0.9s cubic-bezier(0.22,1,0.36,1) forwards;
+    }
+    .d0 { animation-delay: 0.04s; }
+    .d1 { animation-delay: 0.18s; }
+    .d2 { animation-delay: 0.34s; }
+    .d3 { animation-delay: 0.50s; }
+    .d4 { animation-delay: 0.66s; }
+    .d5 { animation-delay: 0.80s; }
+
+    @keyframes fadeUp {
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Scroll-triggered reveal with blur */
+    .sr {
+      opacity: 0;
+      transform: translateY(28px);
+      filter: blur(5px);
+      transition:
+        opacity   0.85s cubic-bezier(0.22,1,0.36,1),
+        transform 0.85s cubic-bezier(0.22,1,0.36,1),
+        filter    0.75s cubic-bezier(0.22,1,0.36,1);
+    }
+    .sr.on { opacity: 1; transform: translateY(0); filter: blur(0); }
+    .sr1 { transition-delay: 0.04s; }
+    .sr2 { transition-delay: 0.16s; }
+    .sr3 { transition-delay: 0.28s; }
+    .sr4 { transition-delay: 0.40s; }
+    .sr5 { transition-delay: 0.54s; }
+    .sr6 { transition-delay: 0.68s; }
+
+    /* ── RESPONSIVE ──────────────────────────────────────── */
+    @media (max-width: 900px) {
+      .container { padding: 0 32px; }
+    }
+    @media (max-width: 860px) {
+      .contact-layout { grid-template-columns: 1fr; gap: 48px; }
+      .contact-aside  { position: static; }
+      .contact-aside .h2    { max-width: 100%; }
+      .contact-aside .sec-body { max-width: 100%; }
+      .contact-ghost  { display: none; }
+    }
+    @media (max-width: 680px) {
+      .hero  { padding-top: 108px; padding-bottom: 80px; }
+      .ghost-num { font-size: 130px; opacity: 0.028; }
+      .contact { padding-top: 80px; padding-bottom: 60px; }
+      .footer-inner { flex-direction: column; align-items: flex-start; gap: 10px; }
+      .footer-links { display: none; }
+      .crow-title { font-size: 18px; }
+    }
+    @media (max-width: 480px) {
+      .container { padding: 0 20px; }
+      .logo-tagline { display: none; }
+      .scroll-cue   { display: none; }
+    }
+    /* ── WORD-BY-WORD HEADLINE ───────────────────────────── */
+    .w {
+      display: inline-block;
+      opacity: 0;
+      transform: translateY(24px);
+      animation: wReveal 0.7s calc(0.06s + var(--wi, 0) * 0.10s) cubic-bezier(0.22,1,0.36,1) forwards;
+    }
+    @keyframes wReveal {
+      to { opacity: 1; transform: none; }
+    }
+
+    /* ── SCROLL PROGRESS BAR ─────────────────────────────── */
+    #scroll-prog {
+      position: fixed; top: 0; left: 0; z-index: 200;
+      height: 2px; width: 0%;
+      background: var(--blue);
+      pointer-events: none;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .anim, .sr { animation: none !important; opacity: 1; transform: none; transition: none; filter: none; }
+      .w { animation: none !important; opacity: 1; transform: none; }
+      .marquee-track { animation: none; }
+      .ghost-num { animation: none; }
+      .bg-shape { animation: none; }
+      .progress-fill { width: 55% !important; animation: none !important; }
+    }
+  </style>
+</head>
+<body>
+
+  <div id="scroll-prog" aria-hidden="true"></div>
+
+  <!-- Atmospheric layers -->
+  <div class="bg-shapes" aria-hidden="true">
+    <div class="bg-shape"></div>
+    <div class="bg-shape"></div>
+    <div class="bg-shape"></div>
+    <div class="bg-shape"></div>
+  </div>
+  <div class="bg-noise" aria-hidden="true"></div>
+
+  <!-- ── NAV ──────────────────────────────────────────────── -->
+  <nav class="nav" role="navigation" aria-label="Main navigation">
+    <div class="container nav-inner">
+
+      <a class="logo" href="#" aria-label="Ayamtek — home">
+        <!-- Real Ayamtek icon mark (brand asset — white for dark header) -->
+        <svg class="logo-svg" viewBox="0 0 11190.46 11291.17" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" style="fill-rule:evenodd;clip-rule:evenodd;">
+          <path fill="#ffffff" d="M5970.71 8259.5c1368.52,0 2704.82,17.83 4085.94,17.83l-37.01 -16.5c-117.28,-43.62 -288.36,-87.84 -415.01,-155.97 -266.96,-143.6 -499.53,-326.35 -712.28,-536.69l-1344.35 -1831.64c-411.49,-596.11 -886.96,-1231.67 -1309.53,-1830.75l-525.14 -741.69c-48.26,-66.74 -91.18,-123.94 -135.04,-186.12 -38.97,-55.24 -89.29,-142.42 -142.86,-178.29l-608.61 1677.5c-31.46,92.37 12.27,104.31 116.16,260.18l653.04 988.49c288.42,432.61 573.97,856.4 863.86,1295.08 120.37,182.14 291.05,547.84 176.96,816.3 -59.98,141.13 -136.68,197.8 -262.98,272.3 -101.05,59.62 -191.71,83.39 -300.24,110.13l-102.91 39.85z"/>
+          <polygon fill="#ffffff" points="1813.38,4280.6 2973.14,4280.6 2973.14,2942.41 1813.38,2942.41 "/>
+          <path fill="#ffffff" d="M2509.24 8330.85l2051.9 0c-3.79,-2.4 -10.26,-9.27 -12.2,-5.63l-327.09 -136.83c-462.07,-239.32 -410.1,-588.42 -410.1,-1088.68l-39.66 103.1c-144,527.88 -673.08,886.68 -1153.25,1077.06l-109.6 50.98z"/>
+          <path fill="#ffffff" d="M3419.2 3870.23l0 749.39 713.71 0 0 -749.39c0,-41.12 -12.41,-53.53 -53.53,-53.53l-606.65 0c-41.12,0 -53.53,12.41 -53.53,53.53z"/>
+          <path fill="#ffffff" d="M3169.42 3388.48c0,93.1 189.07,53.53 446.05,53.53 41.12,0 53.53,-12.41 53.53,-53.53l0 -499.6 -499.58 0 0 499.6z"/>
+          <ellipse fill="none" stroke="#ffffff" stroke-width="219.43" stroke-miterlimit="2.61" cx="5595.23" cy="5645.59" rx="5485.51" ry="5535.87"/>
+        </svg>
+        <div class="logo-text">
+          <span class="logo-name">Ayamtek</span>
+          <span class="logo-tagline">more than just tech...</span>
+        </div>
+      </a>
+
+      <a class="nav-cta" href="https://calendly.com/ayamtek-xyz/strategy-call" target="_blank" rel="noopener noreferrer">
+        Let's Work Together
+      </a>
+
+    </div>
+  </nav>
+
+  <!-- ── HERO ─────────────────────────────────────────────── -->
+  <main id="main">
+    <section class="hero" aria-labelledby="hero-h1">
+
+      <span class="ghost-num" aria-hidden="true">01</span>
+
+      <div class="container">
+
+        <div class="chip chip-blue anim d0">
+          <span class="cdot cdot-blue" aria-hidden="true"></span>
+          Site Upgrade in Progress · April 2026
+        </div>
+
+        <h1 class="h1" id="hero-h1">
+          <span class="w" style="--wi:0">We're</span>
+          <span class="w" style="--wi:1">building</span><br aria-hidden="true"/>
+          <span class="w" style="--wi:2">something</span>
+          <span class="w accent" style="--wi:3">better.</span>
+        </h1>
+
+        <p class="hero-sub anim d2">
+          Ayamtek is undergoing a full digital transformation. Our new platform will be sharper, faster and built to a genuinely world-class standard.
+        </p>
+
+        <div class="progress-wrap anim d3" aria-label="Build progress: 55 percent">
+          <div class="progress-track">
+            <div class="progress-label">Build Progress</div>
+            <div class="progress-bar" role="progressbar" aria-valuenow="55" aria-valuemin="0" aria-valuemax="100">
+              <div class="progress-fill"></div>
+            </div>
+          </div>
+          <span class="progress-pct" id="pct">0%</span>
+        </div>
+
+        <div class="hero-actions anim d4">
+          <a class="hero-btn hero-btn-primary" href="#contact">
+            Let's Build Together
+            <span class="btn-arrow" aria-hidden="true">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none"
+                   stroke="currentColor" stroke-width="2.5"
+                   stroke-linecap="square" stroke-linejoin="miter">
+                <line x1="5" y1="12" x2="19" y2="12"/>
+                <polyline points="12 5 19 12 12 19"/>
+              </svg>
+            </span>
+          </a>
+          <a class="hero-btn hero-btn-ghost" href="appointment.html">
+            Book a Strategy Call
+          </a>
+        </div>
+
+      </div>
+
+      <a class="scroll-cue" href="#contact" aria-label="Scroll to contact options">
+        <div class="scroll-arrow" aria-hidden="true">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none"
+               stroke="currentColor" stroke-width="2.2"
+               stroke-linecap="square" stroke-linejoin="miter">
+            <polyline points="6 9 12 15 18 9"/>
+          </svg>
+        </div>
+        <span class="scroll-cue-label">Contact</span>
+      </a>
+
+    </section>
+
+    <!-- ── MARQUEE ──────────────────────────────────────────── -->
+    <div class="marquee-wrap" aria-hidden="true">
+
+      <!-- Row 1 — left → right -->
+      <div class="marquee-track fwd">
+        <div class="marquee-set">
+          <span class="mi mi-blue">Ayamtek <span class="msep">◆</span></span>
+          <span class="mi">Digital Transformation <span class="msep">◆</span></span>
+          <span class="mi">AI-Powered Solutions <span class="msep">◆</span></span>
+          <span class="mi">World-Class Execution <span class="msep">◆</span></span>
+          <span class="mi">Full-Stack Digital Agency <span class="msep">◆</span></span>
+          <span class="mi">Purpose-Built Platforms <span class="msep">◆</span></span>
+          <span class="mi">Measurable Results <span class="msep">◆</span></span>
+          <span class="mi">Outcome-Led Delivery <span class="msep">◆</span></span>
+        </div>
+        <div class="marquee-set">
+          <span class="mi mi-blue">Ayamtek <span class="msep">◆</span></span>
+          <span class="mi">Digital Transformation <span class="msep">◆</span></span>
+          <span class="mi">AI-Powered Solutions <span class="msep">◆</span></span>
+          <span class="mi">World-Class Execution <span class="msep">◆</span></span>
+          <span class="mi">Full-Stack Digital Agency <span class="msep">◆</span></span>
+          <span class="mi">Purpose-Built Platforms <span class="msep">◆</span></span>
+          <span class="mi">Measurable Results <span class="msep">◆</span></span>
+          <span class="mi">Outcome-Led Delivery <span class="msep">◆</span></span>
+        </div>
+      </div>
+
+      <!-- Row 2 — right → left (reverse) -->
+      <div class="marquee-track rev">
+        <div class="marquee-set">
+          <span class="mi">Design That Converts <span class="msep">◆</span></span>
+          <span class="mi mi-blue">More Than Just Tech <span class="msep">◆</span></span>
+          <span class="mi">Built for Growth <span class="msep">◆</span></span>
+          <span class="mi">Strategic · Creative · Technical <span class="msep">◆</span></span>
+          <span class="mi">Innovation at Scale <span class="msep">◆</span></span>
+          <span class="mi">Trusted Globally <span class="msep">◆</span></span>
+          <span class="mi">Brands That Mean Business <span class="msep">◆</span></span>
+          <span class="mi">Precision-Crafted Experiences <span class="msep">◆</span></span>
+        </div>
+        <div class="marquee-set">
+          <span class="mi">Design That Converts <span class="msep">◆</span></span>
+          <span class="mi mi-blue">More Than Just Tech <span class="msep">◆</span></span>
+          <span class="mi">Built for Growth <span class="msep">◆</span></span>
+          <span class="mi">Strategic · Creative · Technical <span class="msep">◆</span></span>
+          <span class="mi">Innovation at Scale <span class="msep">◆</span></span>
+          <span class="mi">Trusted Globally <span class="msep">◆</span></span>
+          <span class="mi">Brands That Mean Business <span class="msep">◆</span></span>
+          <span class="mi">Precision-Crafted Experiences <span class="msep">◆</span></span>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- ── CONTACT SECTION ───────────────────────────────── -->
+    <section id="contact" class="contact" aria-labelledby="contact-h2">
+      <div class="container">
+        <div class="contact-layout">
+
+          <!-- Left: sticky aside -->
+          <aside class="contact-aside">
+            <div class="chip chip-blue sr sr1">
+              <span class="cdot cdot-blue" aria-hidden="true"></span>
+              Reach Us
+            </div>
+            <h2 class="h2 sr sr2" id="contact-h2">
+              You shouldn't<br/>have to wait.
+            </h2>
+            <p class="sec-body sr sr3">
+              The site is down. We're not. Reach Ayamtek directly — a personal response is guaranteed within 24 hours on every channel.
+            </p>
+            <div class="contact-ghost sr sr4" aria-hidden="true">02</div>
+          </aside>
+
+          <!-- Right: contact rows -->
+          <div class="contact-list" role="list">
+
+            <!-- Book a Strategy Call -->
+            <a
+              class="crow crow-book sr sr3"
+              href="appointment.html"
+              role="listitem"
+              aria-label="Book a free 30-minute strategy call"
+            >
+              <div class="crow-icon" aria-hidden="true">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none"
+                     stroke="#101981" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="3" y="4" width="18" height="18" rx="2"/>
+                  <line x1="16" y1="2" x2="16" y2="6"/>
+                  <line x1="8"  y1="2" x2="8"  y2="6"/>
+                  <line x1="3"  y1="10" x2="21" y2="10"/>
+                  <circle cx="8"  cy="15" r="1" fill="#101981" stroke="none"/>
+                  <circle cx="12" cy="15" r="1" fill="#101981" stroke="none"/>
+                  <circle cx="16" cy="15" r="1" fill="#101981" stroke="none"/>
+                </svg>
+              </div>
+              <div class="crow-body">
+                <div class="crow-label">Complimentary 30-min session &nbsp;·&nbsp; Zero obligation</div>
+                <div class="crow-title">Book a Free Strategy Call</div>
+              </div>
+              <div class="crow-arrow" aria-hidden="true">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none"
+                     stroke="currentColor" stroke-width="2.2"
+                     stroke-linecap="square" stroke-linejoin="miter">
+                  <line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/>
+                </svg>
+              </div>
+            </a>
+
+            <!-- WhatsApp -->
+            <a
+              class="crow crow-wa sr sr4"
+              href="https://wa.me/2348093785839?text=Hi%20Ayamtek%2C%20I%20visited%20your%20website%20and%20I%27d%20love%20for%20us%20to%20work%20together."
+              target="_blank" rel="noopener noreferrer"
+              role="listitem" aria-label="Chat on WhatsApp — +234 809 378 5839"
+            >
+              <div class="crow-icon" aria-hidden="true">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="#25d366">
+                  <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+                </svg>
+              </div>
+              <div class="crow-body">
+                <div class="crow-label">Message us instantly</div>
+                <div class="crow-title">WhatsApp</div>
+              </div>
+              <div class="crow-arrow" aria-hidden="true">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="square" stroke-linejoin="miter">
+                  <line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/>
+                </svg>
+              </div>
+            </a>
+
+            <!-- Email -->
+            <a
+              class="crow crow-email sr sr4"
+              href="mailto:hello@ayamtek.xyz?subject=Enquiry%20via%20Website"
+              role="listitem" aria-label="Email hello@ayamtek.xyz"
+            >
+              <div class="crow-icon" aria-hidden="true">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#101981" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                  <polyline points="22,6 12,13 2,6"/>
+                </svg>
+              </div>
+              <div class="crow-body">
+                <div class="crow-label">Send an enquiry</div>
+                <div class="crow-title">Email Us</div>
+              </div>
+              <div class="crow-arrow" aria-hidden="true">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="square" stroke-linejoin="miter">
+                  <line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/>
+                </svg>
+              </div>
+            </a>
+
+            <!-- Call -->
+            <a
+              class="crow crow-call sr sr5"
+              href="tel:+2349028548117"
+              role="listitem" aria-label="Call +234 902 854 8117"
+            >
+              <div class="crow-icon" aria-hidden="true">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0F0E0A" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" opacity="0.6">
+                  <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81a19.79 19.79 0 01-3.07-8.67A2 2 0 012 .18h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 14.92z"/>
+                </svg>
+              </div>
+              <div class="crow-body">
+                <div class="crow-label">Speak with our team</div>
+                <div class="crow-title">Call Us</div>
+              </div>
+              <div class="crow-arrow" aria-hidden="true">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="square" stroke-linejoin="miter">
+                  <line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/>
+                </svg>
+              </div>
+            </a>
+
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ── FOOTER ──────────────────────────────────────────── -->
+  <div class="footer-rule"></div>
+  <footer class="footer" role="contentinfo">
+    <div class="container footer-inner">
+      <div class="footer-left">
+        <span>Copyright &copy; 2026 <span class="footer-name">Ayamtek.</span> All rights reserved.</span>
+      </div>
+      <span class="footer-tag">more than just tech...</span>
+      <nav class="footer-links" aria-label="Social links">
+        <a href="https://www.instagram.com/ayamtek.xyz"       target="_blank" rel="noopener" aria-label="Instagram">Instagram</a>
+        <a href="https://linkedin.com/company/ayamtek-xyz"    target="_blank" rel="noopener" aria-label="LinkedIn">LinkedIn</a>
+        <a href="https://twitter.com/ayamtekxyz"              target="_blank" rel="noopener" aria-label="Twitter/X">X</a>
+        <a href="https://web.facebook.com/ayamtek.xyz"        target="_blank" rel="noopener" aria-label="Facebook">Facebook</a>
+      </nav>
+    </div>
+  </footer>
+
+  <script>
+    (function () {
+      'use strict';
+
+      /* ── Scroll progress bar ── */
+      var prog = document.getElementById('scroll-prog');
+      if (prog) {
+        window.addEventListener('scroll', function () {
+          var max = document.documentElement.scrollHeight - window.innerHeight;
+          prog.style.width = (max > 0 ? (window.scrollY / max) * 100 : 0).toFixed(1) + '%';
+        }, { passive: true });
+      }
+
+      /* ── Scroll-triggered reveals ── */
+      var srEls = document.querySelectorAll('.sr');
+      if ('IntersectionObserver' in window) {
+        var obs = new IntersectionObserver(function (entries) {
+          entries.forEach(function (entry) {
+            if (entry.isIntersecting) { entry.target.classList.add('on'); obs.unobserve(entry.target); }
+          });
+        }, { threshold: 0.08, rootMargin: '0px 0px -28px 0px' });
+        srEls.forEach(function (el) { obs.observe(el); });
+      } else {
+        srEls.forEach(function (el) { el.classList.add('on'); });
+      }
+
+      /* ── Progress counter ── */
+      var pctEl = document.getElementById('pct');
+      if (pctEl && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+        var start = null, delay = 850, dur = 2800, target = 55, last = -1;
+        function tick(ts) {
+          if (!start) start = ts;
+          var elapsed = ts - start - delay;
+          if (elapsed < 0) { requestAnimationFrame(tick); return; }
+          var t = Math.min(elapsed / dur, 1);
+          var eased = t < 0.5 ? 4*t*t*t : 1 - Math.pow(-2*t+2,3)/2;
+          var val = Math.round(eased * target);
+          if (val !== last) { pctEl.textContent = val + '%'; last = val; }
+          if (t < 1) { requestAnimationFrame(tick); }
+          else { pctEl.classList.add('pop'); setTimeout(function(){ pctEl.classList.remove('pop'); }, 320); }
+        }
+        requestAnimationFrame(tick);
+      } else if (pctEl) {
+        pctEl.textContent = '55%';
+      }
+
+    })();
+  </script>
+
+</body>
+</html>

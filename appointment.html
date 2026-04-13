@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Book a Strategy Call — Ayamtek</title>
+  <meta name="description" content="Schedule a complimentary 30-minute strategy call with Ayamtek. No obligation." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;700;800&family=Inter:wght@300;400;500&display=swap" rel="stylesheet" />
+  <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
+
+  <style>
+    :root {
+      --ink:    #0F0E0A;
+      --blue:   #101981;
+      --blue2:  #1a24a8;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html, body {
+      height: 100%;
+      overflow: hidden;
+      font-family: 'Inter', sans-serif;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ── FULL-HEIGHT SPLIT LAYOUT ────────────────────────── */
+    .layout {
+      display: flex;
+      width: 100%;
+      height: 100vh;
+    }
+
+    /* ── LEFT PANEL ─────────────────────────────────────── */
+    .panel {
+      width: 340px;
+      flex-shrink: 0;
+      background: var(--ink);
+      display: flex;
+      flex-direction: column;
+      padding: 24px 32px 24px;
+      overflow-y: auto;
+      position: relative;
+    }
+
+    /* Subtle blue glow in the corner */
+    .panel::after {
+      content: '';
+      position: fixed;
+      bottom: 0; left: 0;
+      width: 340px; height: 260px;
+      background: radial-gradient(ellipse at 30% 100%, rgba(16,25,129,0.32) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    /* Back */
+    .back {
+      display: inline-flex; align-items: center; gap: 7px;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 10px; font-weight: 600;
+      letter-spacing: 0.12em; text-transform: uppercase;
+      color: rgba(255,255,255,0.35);
+      text-decoration: none;
+      transition: color 0.2s;
+      margin-bottom: 20px;
+      width: fit-content;
+    }
+    .back:hover { color: rgba(255,255,255,0.65); }
+    .back:hover svg { transform: translateX(-3px); }
+    .back svg { transition: transform 0.2s cubic-bezier(0.34,1.56,0.64,1); }
+
+    /* Logo */
+    .logo {
+      display: flex; align-items: center; gap: 10px;
+      text-decoration: none; margin-bottom: 24px;
+    }
+    .logo svg { width: 30px; height: 30px; flex-shrink: 0; }
+    .logo-name {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 12px; font-weight: 800;
+      letter-spacing: 0.08em; text-transform: uppercase;
+      color: #fff;
+    }
+
+    /* Live indicator */
+    .live-chip {
+      display: inline-flex; align-items: center; gap: 7px;
+      padding: 5px 11px;
+      border: 1px solid rgba(16,25,129,0.45);
+      background: rgba(16,25,129,0.15);
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 9px; font-weight: 600;
+      letter-spacing: 0.14em; text-transform: uppercase;
+      color: rgba(255,255,255,0.55);
+      margin-bottom: 12px;
+      width: fit-content;
+    }
+    .live-dot {
+      width: 5px; height: 5px; border-radius: 50%;
+      background: #5b8fff;
+      animation: blink 2.2s ease-in-out infinite;
+    }
+    @keyframes blink {
+      0%, 100% { opacity: 1; }
+      50%       { opacity: 0.35; }
+    }
+
+    /* Heading */
+    .panel-h {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 22px; font-weight: 800;
+      letter-spacing: -0.03em; line-height: 1.15;
+      color: #fff; margin-bottom: 10px;
+    }
+    .panel-sub {
+      font-size: 13px; line-height: 1.7; font-weight: 300;
+      color: rgba(255,255,255,0.42);
+      margin-bottom: 24px;
+    }
+
+    /* Details */
+    .details { list-style: none; display: flex; flex-direction: column; gap: 12px; }
+    .d-row { display: flex; align-items: center; gap: 13px; }
+    .d-icon {
+      width: 30px; height: 30px; flex-shrink: 0;
+      border: 1px solid rgba(255,255,255,0.07);
+      background: rgba(255,255,255,0.03);
+      display: flex; align-items: center; justify-content: center;
+      color: rgba(255,255,255,0.45);
+    }
+    .d-val {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 13px; font-weight: 600;
+      color: rgba(255,255,255,0.72);
+    }
+    .d-sub {
+      font-size: 10px; font-weight: 400;
+      color: rgba(255,255,255,0.28);
+      margin-top: 1px;
+    }
+
+    /* Rule */
+    .rule { height: 1px; background: rgba(255,255,255,0.06); margin: 20px 0 16px; }
+
+    /* Footer note */
+    .panel-note {
+      font-size: 11px; font-weight: 300;
+      color: rgba(255,255,255,0.2);
+      line-height: 1.65;
+      margin-top: auto;
+      padding-top: 24px;
+    }
+
+    /* ── RIGHT PANEL — Calendly fills 100% ───────────────── */
+    .cal-panel {
+      flex: 1;
+      height: 100vh;
+      overflow: hidden;
+      background: #fff;
+      position: relative;
+    }
+    .calendly-inline-widget {
+      width: 100% !important;
+      height: 100vh !important;
+    }
+
+    /* ── BOOKING CONFIRMED OVERLAY ───────────────────────── */
+    #confirmed {
+      display: none;
+      position: absolute; inset: 0;
+      background: #fff;
+      flex-direction: column;
+      align-items: center; justify-content: center;
+      text-align: center; padding: 48px 36px;
+      z-index: 10;
+    }
+    #confirmed.show {
+      display: flex;
+      animation: fadeUp 0.55s cubic-bezier(0.22,1,0.36,1) both;
+    }
+    @keyframes fadeUp { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: none; } }
+
+    .confirm-icon {
+      width: 68px; height: 68px;
+      border: 1px solid rgba(16,25,129,0.15);
+      background: rgba(16,25,129,0.05);
+      display: flex; align-items: center; justify-content: center;
+      margin-bottom: 28px;
+      animation: pop 0.5s 0.15s cubic-bezier(0.34,1.56,0.64,1) both;
+    }
+    @keyframes pop { from { opacity: 0; transform: scale(0.55); } to { opacity: 1; transform: scale(1); } }
+    .confirm-h {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 34px; font-weight: 800;
+      letter-spacing: -0.04em; color: var(--ink);
+      margin-bottom: 6px;
+    }
+    .confirm-rule {
+      width: 32px; height: 2px; background: var(--blue); margin: 18px auto 20px;
+    }
+    .confirm-body {
+      font-size: 14.5px; line-height: 1.8;
+      color: rgba(15,14,10,0.48); max-width: 320px; margin-bottom: 36px;
+    }
+    .confirm-btn {
+      display: inline-flex; align-items: center; gap: 9px;
+      padding: 13px 28px;
+      background: var(--blue);
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 11px; font-weight: 700;
+      letter-spacing: 0.05em; text-transform: uppercase;
+      color: #fff; text-decoration: none;
+      transition: background 0.2s, transform 0.22s cubic-bezier(0.34,1.56,0.64,1);
+    }
+    .confirm-btn:hover { background: var(--blue2); transform: translateY(-2px); }
+
+    /* ── MOBILE ──────────────────────────────────────────── */
+    @media (max-width: 700px) {
+      html, body { overflow: auto; height: auto; }
+      .layout    { flex-direction: column; height: auto; }
+      .panel     { width: 100%; padding: 24px 20px 28px; }
+      .panel::after { display: none; }
+      .panel-h   { font-size: 20px; }
+      .details   { display: none; }
+      .rule      { display: none; }
+      .panel-note { display: none; }
+      .panel-sub { font-size: 13px; margin-bottom: 0; }
+      .cal-panel { height: 700px; }
+      .calendly-inline-widget { height: 700px !important; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="layout">
+
+  <!-- ── LEFT INFO PANEL ─── -->
+  <aside class="panel">
+
+    <a class="back" href="index.html">
+      <svg width="13" height="13" viewBox="0 0 24 24" fill="none"
+           stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+        <line x1="19" y1="12" x2="5" y2="12"/>
+        <polyline points="12 19 5 12 12 5"/>
+      </svg>
+      Back to site
+    </a>
+
+    <a class="logo" href="index.html" aria-label="Ayamtek home">
+      <svg viewBox="0 0 11190.46 11291.17" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" style="fill-rule:evenodd;clip-rule:evenodd;">
+        <path fill="#fff" d="M5970.71 8259.5c1368.52,0 2704.82,17.83 4085.94,17.83l-37.01 -16.5c-117.28,-43.62 -288.36,-87.84 -415.01,-155.97 -266.96,-143.6 -499.53,-326.35 -712.28,-536.69l-1344.35 -1831.64c-411.49,-596.11 -886.96,-1231.67 -1309.53,-1830.75l-525.14 -741.69c-48.26,-66.74 -91.18,-123.94 -135.04,-186.12 -38.97,-55.24 -89.29,-142.42 -142.86,-178.29l-608.61 1677.5c-31.46,92.37 12.27,104.31 116.16,260.18l653.04 988.49c288.42,432.61 573.97,856.4 863.86,1295.08 120.37,182.14 291.05,547.84 176.96,816.3 -59.98,141.13 -136.68,197.8 -262.98,272.3 -101.05,59.62 -191.71,83.39 -300.24,110.13l-102.91 39.85z"/>
+        <polygon fill="#fff" points="1813.38,4280.6 2973.14,4280.6 2973.14,2942.41 1813.38,2942.41 "/>
+        <path fill="#fff" d="M2509.24 8330.85l2051.9 0c-3.79,-2.4 -10.26,-9.27 -12.2,-5.63l-327.09 -136.83c-462.07,-239.32 -410.1,-588.42 -410.1,-1088.68l-39.66 103.1c-144,527.88 -673.08,886.68 -1153.25,1077.06l-109.6 50.98z"/>
+        <path fill="#fff" d="M3419.2 3870.23l0 749.39 713.71 0 0 -749.39c0,-41.12 -12.41,-53.53 -53.53,-53.53l-606.65 0c-41.12,0 -53.53,12.41 -53.53,53.53z"/>
+        <path fill="#fff" d="M3169.42 3388.48c0,93.1 189.07,53.53 446.05,53.53 41.12,0 53.53,-12.41 53.53,-53.53l0 -499.6 -499.58 0 0 499.6z"/>
+        <ellipse fill="none" stroke="#fff" stroke-width="219.43" stroke-miterlimit="2.61" cx="5595.23" cy="5645.59" rx="5485.51" ry="5535.87"/>
+      </svg>
+      <span class="logo-name">Ayamtek</span>
+    </a>
+
+    <div class="live-chip">
+      <span class="live-dot" aria-hidden="true"></span>
+      Strategy Call
+    </div>
+
+    <h1 class="panel-h">Let's talk about your project.</h1>
+    <p class="panel-sub">30 minutes. No pressure. A focused conversation about where you want to go and how we can help you get there.</p>
+
+    <ul class="details">
+      <li class="d-row">
+        <div class="d-icon" aria-hidden="true">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/>
+          </svg>
+        </div>
+        <div>
+          <div class="d-val">30 minutes</div>
+          <div class="d-sub">Duration</div>
+        </div>
+      </li>
+      <li class="d-row">
+        <div class="d-icon" aria-hidden="true">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="20 6 9 17 4 12"/>
+          </svg>
+        </div>
+        <div>
+          <div class="d-val">Complimentary</div>
+          <div class="d-sub">Zero cost · Zero obligation</div>
+        </div>
+      </li>
+      <li class="d-row">
+        <div class="d-icon" aria-hidden="true">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/>
+          </svg>
+        </div>
+        <div>
+          <div class="d-val">Google Meet or Phone</div>
+          <div class="d-sub">Format</div>
+        </div>
+      </li>
+      <li class="d-row">
+        <div class="d-icon" aria-hidden="true">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="10"/>
+            <line x1="2" y1="12" x2="22" y2="12"/>
+            <path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/>
+          </svg>
+        </div>
+        <div>
+          <div class="d-val">Your timezone</div>
+          <div class="d-sub">You pick what works</div>
+        </div>
+      </li>
+    </ul>
+
+    <div class="rule"></div>
+
+    <p class="panel-note">
+      A personal response is guaranteed within 24 hours on every channel.
+    </p>
+
+  </aside>
+
+  <!-- ── RIGHT: FULL-HEIGHT CALENDLY ─── -->
+  <main class="cal-panel" id="cal-panel">
+
+    <div class="calendly-inline-widget"
+         data-url="https://calendly.com/ayamtek-xyz/strategy-call"
+         style="width:100%;height:100vh;"></div>
+
+    <!-- Confirmed overlay -->
+    <div id="confirmed" role="status" aria-live="polite">
+      <div class="confirm-icon" aria-hidden="true">
+        <svg width="26" height="26" viewBox="0 0 24 24" fill="none"
+             stroke="#101981" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="20 6 9 17 4 12"/>
+        </svg>
+      </div>
+      <p class="confirm-h">You're booked.</p>
+      <div class="confirm-rule"></div>
+      <p class="confirm-body">
+        Your strategy call is confirmed. A calendar invite has been sent to your inbox — check your spam folder if you don't see it.<br/><br/>
+        We're looking forward to the conversation.
+      </p>
+      <a class="confirm-btn" href="index.html">
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none"
+             stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/>
+        </svg>
+        Back to site
+      </a>
+    </div>
+
+  </main>
+
+</div>
+
+<script>
+  window.addEventListener('message', function (e) {
+    if (e.data && e.data.event === 'calendly.event_scheduled') {
+      var el = document.getElementById('confirmed');
+      if (el) el.classList.add('show');
+    }
+  });
+</script>
+
+</body>
+</html>

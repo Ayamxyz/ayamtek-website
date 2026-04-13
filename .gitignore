@@ -1,0 +1,29 @@
+# Dependencies
+node_modules/
+
+# Build / deploy
+.vercel
+
+# Packages
+package.json
+package-lock.json
+
+# Dev scripts
+screenshot.js
+ss-appt.js
+
+# Screenshots
+screenshots/
+
+# Research & internal docs
+*.md
+*.pdf
+prompt.md
+reference.md
+skills.md
+
+# Brand assets (SVG paths are already inlined in HTML)
+Brand Assets/
+
+# Claude memory
+.claude/
