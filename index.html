@@ -360,40 +360,42 @@
     }
 
     /* ── MARQUEE — crossed ribbon strips ────────────────── */
+    /*
+      Geometry: ribbon center at 43px / 69px inside 112px wrap.
+      At viewport left edge (720px from ribbon center), 2° rotation
+      shifts the border by 720×sin(2°) = 25.1px — stays within wrap.
+    */
     .marquee-wrap {
       position: relative; z-index: 2;
-      height: 86px;
+      height: 112px;
       overflow: hidden;
     }
     .marquee-ribbon {
       position: absolute;
-      left: 0; right: 0;
+      left: -6%; right: -6%;   /* wider than viewport so no gap at rotated corners */
       padding: 11px 0;
       border-top: 1px solid var(--border);
       border-bottom: 1px solid var(--border);
       background: var(--bg);
-      overflow: hidden;  /* clips track at ribbon edges; animation still runs inside */
+      /* No overflow:hidden here — the wrap handles the clip.
+         Keeps the track free to extend and scroll. */
     }
     .marquee-ribbon.fwd-ribbon {
-      top: 12px;
-      transform: rotate(-2.5deg);
+      top: 26px;
+      transform: rotate(-2deg);
       z-index: 2;
     }
     .marquee-ribbon.rev-ribbon {
-      bottom: 12px;
-      transform: rotate(2.5deg);
+      bottom: 26px;
+      transform: rotate(2deg);
       z-index: 1;
     }
-    /* 3 identical sets per track → translateX(-33.333%) scrolls one full set,
-       ensuring content always fills the viewport regardless of screen width  */
+    /* JS drives the scroll — no CSS animation on the track */
     .marquee-track {
       display: inline-flex;
-      white-space: nowrap;
       align-items: center;
       will-change: transform;
     }
-    .marquee-track.fwd { animation: ticker-fwd 26s linear infinite; }
-    .marquee-track.rev { animation: ticker-rev 32s linear infinite; }
     .marquee-set {
       display: inline-flex; align-items: center; flex-shrink: 0;
     }
@@ -407,14 +409,6 @@
     }
     .mi-blue { color: var(--blue); opacity: 0.75; }
     .msep { color: var(--blue); opacity: 0.35; font-size: 6px; }
-    @keyframes ticker-fwd {
-      from { transform: translateX(0); }
-      to   { transform: translateX(-33.333%); }
-    }
-    @keyframes ticker-rev {
-      from { transform: translateX(-33.333%); }
-      to   { transform: translateX(0); }
-    }
 
     /* ── CONTACT SECTION ──────────────────────────────────── */
     .contact {
@@ -659,7 +653,7 @@
     @media (prefers-reduced-motion: reduce) {
       .anim, .sr { animation: none !important; opacity: 1; transform: none; transition: none; filter: none; }
       .w { animation: none !important; opacity: 1; transform: none; }
-      .marquee-track { animation: none !important; }
+      .marquee-track { transform: none !important; }
       .ghost-num { animation: none; }
       .bg-shape { animation: none; }
       .progress-fill { width: 55% !important; animation: none !important; }
@@ -1039,6 +1033,29 @@
         requestAnimationFrame(tick);
       } else if (pctEl) {
         pctEl.textContent = '55%';
+      }
+
+      /* ── MARQUEE: JS-driven scroll (avoids CSS animation quirks with rotated parents) ── */
+      if (!noMotion) {
+        document.fonts.ready.then(function () {
+          document.querySelectorAll('.marquee-track').forEach(function (track) {
+            var set = track.querySelector('.marquee-set');
+            if (!set) return;
+            var setW = set.offsetWidth;
+            if (setW < 10) return;            /* font not measured yet, bail */
+            var isFwd = track.classList.contains('fwd');
+            var speed = isFwd ? 0.55 : 0.42; /* px per 60fps frame ≈ 33/25 px/s */
+            var x = isFwd ? 0 : -setW;       /* rev starts one set back so it scrolls right */
+            function step() {
+              x += isFwd ? -speed : speed;
+              if (x <= -setW) x += setW;     /* loop: jump back exactly one set */
+              if (x >= 0)     x -= setW;     /* loop: jump back for reverse */
+              track.style.transform = 'translateX(' + x + 'px)';
+              requestAnimationFrame(step);
+            }
+            requestAnimationFrame(step);
+          });
+        });
       }
 
     })();
