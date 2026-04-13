@@ -369,7 +369,6 @@
       position: relative; z-index: 2;
       height: 112px;
       overflow: hidden;
-      background: var(--bg);
       /* Soft fade at left/right edges so diagonal ribbon cuts look clean */
       -webkit-mask-image: linear-gradient(to right, transparent 0%, black 4%, black 96%, transparent 100%);
               mask-image: linear-gradient(to right, transparent 0%, black 4%, black 96%, transparent 100%);
@@ -380,7 +379,7 @@
       padding: 11px 0;
       border-top: 1px solid var(--border);
       border-bottom: 1px solid var(--border);
-      background: var(--bg);
+      background: transparent;
       /* No overflow:hidden here — the wrap handles the clip.
          Keeps the track free to extend and scroll. */
     }
