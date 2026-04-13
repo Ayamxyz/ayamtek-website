@@ -369,6 +369,10 @@
       position: relative; z-index: 2;
       height: 112px;
       overflow: hidden;
+      background: var(--bg);
+      /* Soft fade at left/right edges so diagonal ribbon cuts look clean */
+      -webkit-mask-image: linear-gradient(to right, transparent 0%, black 4%, black 96%, transparent 100%);
+              mask-image: linear-gradient(to right, transparent 0%, black 4%, black 96%, transparent 100%);
     }
     .marquee-ribbon {
       position: absolute;
@@ -1035,8 +1039,8 @@
         pctEl.textContent = '55%';
       }
 
-      /* ── MARQUEE: JS-driven scroll (avoids CSS animation quirks with rotated parents) ── */
-      if (!noMotion) {
+      /* ── MARQUEE: JS-driven scroll ── */
+      if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
         document.fonts.ready.then(function () {
           document.querySelectorAll('.marquee-track').forEach(function (track) {
             var set = track.querySelector('.marquee-set');
