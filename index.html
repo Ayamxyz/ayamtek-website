@@ -671,7 +671,7 @@
     @media (prefers-reduced-motion: reduce) {
       .anim, .sr { animation: none !important; opacity: 1; transform: none; transition: none; filter: none; }
       .w { animation: none !important; opacity: 1; transform: none; }
-      .marquee-track { animation: none !important; transform: none !important; }
+      /* marquee intentionally excluded — brand strip always animates */
       .ghost-num { animation: none; }
       .bg-shape { animation: none; }
       .progress-fill { width: 55% !important; animation: none !important; }
@@ -1057,7 +1057,7 @@
          Runs on window.load so layout is complete and offsetWidth is accurate.
          Cancels CSS animation and replaces with rAF for a pixel-perfect loop. */
       window.addEventListener('load', function () {
-        if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+        /* No prefers-reduced-motion check — marquee is a decorative brand strip */
         document.querySelectorAll('.marquee-track').forEach(function (track) {
           var set = track.querySelector('.marquee-set');
           if (!set) return;
