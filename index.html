@@ -387,6 +387,8 @@
     .marquee-track {
       display: flex; white-space: nowrap;
       align-items: center;
+      width: max-content;   /* must exceed ribbon width so translateX has room */
+      will-change: transform;
     }
     .marquee-track.fwd { animation: ticker-fwd 42s linear infinite; }
     .marquee-track.rev { animation: ticker-rev 48s linear infinite; }
