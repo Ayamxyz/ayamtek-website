@@ -362,41 +362,38 @@
     /* ── MARQUEE — crossed ribbon strips ────────────────── */
     .marquee-wrap {
       position: relative; z-index: 2;
-      height: 90px;
+      height: 86px;
       overflow: hidden;
     }
-    /* Each ribbon is a full-width solid band, rotated to cross */
     .marquee-ribbon {
       position: absolute;
-      left: -12%; right: -12%;     /* extend past viewport so rotation corners don't show gaps */
-      padding: 12px 0;
+      left: 0; right: 0;
+      padding: 11px 0;
       border-top: 1px solid var(--border);
       border-bottom: 1px solid var(--border);
       background: var(--bg);
-      /* NO overflow:hidden here — that kills the scroll animation */
+      overflow: hidden;  /* clips track at ribbon edges; animation still runs inside */
     }
-    /* Ribbon 1: tilts up left→right, sits in upper half */
     .marquee-ribbon.fwd-ribbon {
-      top: 18px;
-      transform: rotate(-2.6deg);
-      transform-origin: center center;
+      top: 12px;
+      transform: rotate(-2.5deg);
       z-index: 2;
     }
-    /* Ribbon 2: tilts down left→right, sits in lower half */
     .marquee-ribbon.rev-ribbon {
-      bottom: 18px;
-      transform: rotate(2.6deg);
-      transform-origin: center center;
+      bottom: 12px;
+      transform: rotate(2.5deg);
       z-index: 1;
     }
+    /* 3 identical sets per track → translateX(-33.333%) scrolls one full set,
+       ensuring content always fills the viewport regardless of screen width  */
     .marquee-track {
-      display: flex; white-space: nowrap;
+      display: inline-flex;
+      white-space: nowrap;
       align-items: center;
-      width: max-content;   /* must exceed ribbon width so translateX has room */
       will-change: transform;
     }
-    .marquee-track.fwd { animation: ticker-fwd 42s linear infinite; }
-    .marquee-track.rev { animation: ticker-rev 48s linear infinite; }
+    .marquee-track.fwd { animation: ticker-fwd 26s linear infinite; }
+    .marquee-track.rev { animation: ticker-rev 32s linear infinite; }
     .marquee-set {
       display: inline-flex; align-items: center; flex-shrink: 0;
     }
@@ -412,10 +409,10 @@
     .msep { color: var(--blue); opacity: 0.35; font-size: 6px; }
     @keyframes ticker-fwd {
       from { transform: translateX(0); }
-      to   { transform: translateX(-50%); }
+      to   { transform: translateX(-33.333%); }
     }
     @keyframes ticker-rev {
-      from { transform: translateX(-50%); }
+      from { transform: translateX(-33.333%); }
       to   { transform: translateX(0); }
     }
 
@@ -791,7 +788,17 @@
             <span class="mi">Measurable Results <span class="msep">◆</span></span>
             <span class="mi">Outcome-Led Delivery <span class="msep">◆</span></span>
           </div>
-          <div class="marquee-set">
+          <div class="marquee-set" aria-hidden="true">
+            <span class="mi mi-blue">Ayamtek <span class="msep">◆</span></span>
+            <span class="mi">Digital Transformation <span class="msep">◆</span></span>
+            <span class="mi">AI-Powered Solutions <span class="msep">◆</span></span>
+            <span class="mi">World-Class Execution <span class="msep">◆</span></span>
+            <span class="mi">Full-Stack Digital Agency <span class="msep">◆</span></span>
+            <span class="mi">Purpose-Built Platforms <span class="msep">◆</span></span>
+            <span class="mi">Measurable Results <span class="msep">◆</span></span>
+            <span class="mi">Outcome-Led Delivery <span class="msep">◆</span></span>
+          </div>
+          <div class="marquee-set" aria-hidden="true">
             <span class="mi mi-blue">Ayamtek <span class="msep">◆</span></span>
             <span class="mi">Digital Transformation <span class="msep">◆</span></span>
             <span class="mi">AI-Powered Solutions <span class="msep">◆</span></span>
@@ -817,7 +824,17 @@
             <span class="mi">Brands That Mean Business <span class="msep">◆</span></span>
             <span class="mi">Precision-Crafted Experiences <span class="msep">◆</span></span>
           </div>
-          <div class="marquee-set">
+          <div class="marquee-set" aria-hidden="true">
+            <span class="mi">Design That Converts <span class="msep">◆</span></span>
+            <span class="mi mi-blue">More Than Just Tech <span class="msep">◆</span></span>
+            <span class="mi">Built for Growth <span class="msep">◆</span></span>
+            <span class="mi">Strategic · Creative · Technical <span class="msep">◆</span></span>
+            <span class="mi">Innovation at Scale <span class="msep">◆</span></span>
+            <span class="mi">Trusted Globally <span class="msep">◆</span></span>
+            <span class="mi">Brands That Mean Business <span class="msep">◆</span></span>
+            <span class="mi">Precision-Crafted Experiences <span class="msep">◆</span></span>
+          </div>
+          <div class="marquee-set" aria-hidden="true">
             <span class="mi">Design That Converts <span class="msep">◆</span></span>
             <span class="mi mi-blue">More Than Just Tech <span class="msep">◆</span></span>
             <span class="mi">Built for Growth <span class="msep">◆</span></span>
