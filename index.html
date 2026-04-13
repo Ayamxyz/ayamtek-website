@@ -394,11 +394,25 @@
       transform: rotate(2deg);
       z-index: 1;
     }
-    /* JS drives the scroll — no CSS animation on the track */
     .marquee-track {
-      display: inline-flex;
+      /* min-width:max-content makes the track as wide as its content so
+         translateX(-33.333%) always equals exactly one set width        */
+      display: flex;
+      flex-wrap: nowrap;
+      min-width: max-content;
       align-items: center;
       will-change: transform;
+    }
+    /* CSS animation is the guaranteed fallback — JS overrides with rAF */
+    .marquee-track.fwd { animation: ticker-fwd 28s linear infinite; }
+    .marquee-track.rev { animation: ticker-rev 34s linear infinite; }
+    @keyframes ticker-fwd {
+      from { transform: translateX(0); }
+      to   { transform: translateX(-33.333%); }
+    }
+    @keyframes ticker-rev {
+      from { transform: translateX(-33.333%); }
+      to   { transform: translateX(0); }
     }
     .marquee-set {
       display: inline-flex; align-items: center; flex-shrink: 0;
@@ -657,7 +671,7 @@
     @media (prefers-reduced-motion: reduce) {
       .anim, .sr { animation: none !important; opacity: 1; transform: none; transition: none; filter: none; }
       .w { animation: none !important; opacity: 1; transform: none; }
-      .marquee-track { transform: none !important; }
+      .marquee-track { animation: none !important; transform: none !important; }
       .ghost-num { animation: none; }
       .bg-shape { animation: none; }
       .progress-fill { width: 55% !important; animation: none !important; }
@@ -1039,28 +1053,29 @@
         pctEl.textContent = '55%';
       }
 
-      /* ── MARQUEE: JS-driven scroll ── */
-      if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-        document.fonts.ready.then(function () {
-          document.querySelectorAll('.marquee-track').forEach(function (track) {
-            var set = track.querySelector('.marquee-set');
-            if (!set) return;
-            var setW = set.offsetWidth;
-            if (setW < 10) return;            /* font not measured yet, bail */
-            var isFwd = track.classList.contains('fwd');
-            var speed = isFwd ? 0.55 : 0.42; /* px per 60fps frame ≈ 33/25 px/s */
-            var x = isFwd ? 0 : -setW;       /* rev starts one set back so it scrolls right */
-            function step() {
-              x += isFwd ? -speed : speed;
-              if (x <= -setW) x += setW;     /* loop: jump back exactly one set */
-              if (x >= 0)     x -= setW;     /* loop: jump back for reverse */
-              track.style.transform = 'translateX(' + x + 'px)';
-              requestAnimationFrame(step);
-            }
+      /* ── MARQUEE: JS precision override (CSS animation is the fallback) ──
+         Runs on window.load so layout is complete and offsetWidth is accurate.
+         Cancels CSS animation and replaces with rAF for a pixel-perfect loop. */
+      window.addEventListener('load', function () {
+        if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+        document.querySelectorAll('.marquee-track').forEach(function (track) {
+          var set = track.querySelector('.marquee-set');
+          if (!set) return;
+          var setW = set.offsetWidth;
+          if (!setW) return;
+          var isFwd = track.classList.contains('fwd');
+          var speed = isFwd ? 0.55 : 0.42;
+          var x = isFwd ? 0 : -setW;
+          track.style.animation = 'none';   /* hand off from CSS to JS */
+          (function step() {
+            x += isFwd ? -speed : speed;
+            if (x <= -setW) x += setW;
+            if (x >= 0)     x -= setW;
+            track.style.transform = 'translateX(' + x + 'px)';
             requestAnimationFrame(step);
-          });
+          }());
         });
-      }
+      });
 
     })();
   </script>
