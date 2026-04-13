@@ -362,26 +362,31 @@
     /* ── MARQUEE — crossed ribbon strips ────────────────── */
     .marquee-wrap {
       position: relative; z-index: 2;
-      height: 72px;
+      height: 90px;
       overflow: hidden;
-      /* Vertical clip so ribbons don't bleed outside */
     }
     /* Each ribbon is a full-width solid band, rotated to cross */
     .marquee-ribbon {
       position: absolute;
-      left: -8%; width: 116%;       /* wider than viewport so rotation doesn't expose gaps */
-      padding: 11px 0;
+      left: -12%; right: -12%;     /* extend past viewport so rotation corners don't show gaps */
+      padding: 12px 0;
       border-top: 1px solid var(--border);
       border-bottom: 1px solid var(--border);
       background: var(--bg);
-      overflow: hidden;
+      /* NO overflow:hidden here — that kills the scroll animation */
     }
+    /* Ribbon 1: tilts up left→right, sits in upper half */
     .marquee-ribbon.fwd-ribbon {
-      top: 50%; transform: translateY(-68%) rotate(-2.4deg);
+      top: 18px;
+      transform: rotate(-2.6deg);
+      transform-origin: center center;
       z-index: 2;
     }
+    /* Ribbon 2: tilts down left→right, sits in lower half */
     .marquee-ribbon.rev-ribbon {
-      top: 50%; transform: translateY(-32%) rotate(2.4deg);
+      bottom: 18px;
+      transform: rotate(2.6deg);
+      transform-origin: center center;
       z-index: 1;
     }
     .marquee-track {
