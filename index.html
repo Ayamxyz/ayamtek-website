@@ -395,24 +395,11 @@
       z-index: 1;
     }
     .marquee-track {
-      /* min-width:max-content makes the track as wide as its content so
-         translateX(-33.333%) always equals exactly one set width        */
       display: flex;
       flex-wrap: nowrap;
       min-width: max-content;
       align-items: center;
       will-change: transform;
-    }
-    /* CSS animation is the guaranteed fallback — JS overrides with rAF */
-    .marquee-track.fwd { animation: ticker-fwd 28s linear infinite; }
-    .marquee-track.rev { animation: ticker-rev 34s linear infinite; }
-    @keyframes ticker-fwd {
-      from { transform: translateX(0); }
-      to   { transform: translateX(-33.333%); }
-    }
-    @keyframes ticker-rev {
-      from { transform: translateX(-33.333%); }
-      to   { transform: translateX(0); }
     }
     .marquee-set {
       display: inline-flex; align-items: center; flex-shrink: 0;
@@ -1053,29 +1040,30 @@
         pctEl.textContent = '55%';
       }
 
-      /* ── MARQUEE: JS precision override (CSS animation is the fallback) ──
-         Runs on window.load so layout is complete and offsetWidth is accurate.
-         Cancels CSS animation and replaces with rAF for a pixel-perfect loop. */
-      window.addEventListener('load', function () {
-        /* No prefers-reduced-motion check — marquee is a decorative brand strip */
-        document.querySelectorAll('.marquee-track').forEach(function (track) {
+      /* ── MARQUEE: smooth rAF scroll ──────────────────────────────────────
+         No CSS animation — JS only, so there is no CSS↔JS handoff jump.
+         Starts on DOMContentLoaded; retries every 100ms until offsetWidth
+         is available (handles slow font loads). translate3d promotes the
+         element to its own GPU layer for flicker-free compositing.      */
+      (function () {
+        function startMarquee(track) {
           var set = track.querySelector('.marquee-set');
           if (!set) return;
           var setW = set.offsetWidth;
-          if (!setW) return;
+          if (!setW) { setTimeout(function () { startMarquee(track); }, 100); return; }
           var isFwd = track.classList.contains('fwd');
-          var speed = isFwd ? 0.55 : 0.42;
-          var x = isFwd ? 0 : -setW;
-          track.style.animation = 'none';   /* hand off from CSS to JS */
+          var speed = isFwd ? 0.5 : 0.38;   /* px per 60 fps frame */
+          var x     = isFwd ? 0 : -setW;
           (function step() {
             x += isFwd ? -speed : speed;
             if (x <= -setW) x += setW;
             if (x >= 0)     x -= setW;
-            track.style.transform = 'translateX(' + x + 'px)';
+            track.style.transform = 'translate3d(' + x + 'px,0,0)';
             requestAnimationFrame(step);
           }());
-        });
-      });
+        }
+        document.querySelectorAll('.marquee-track').forEach(startMarquee);
+      }());
 
     })();
   </script>
