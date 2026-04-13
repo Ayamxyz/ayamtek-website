@@ -221,15 +221,10 @@
     @media (max-width: 700px) {
       html, body { overflow: auto; height: auto; }
       .layout    { flex-direction: column; height: auto; }
-      .panel     { width: 100%; padding: 24px 20px 28px; }
-      .panel::after { display: none; }
-      .panel-h   { font-size: 20px; }
-      .details   { display: none; }
-      .rule      { display: none; }
-      .panel-note { display: none; }
-      .panel-sub { font-size: 13px; margin-bottom: 0; }
-      .cal-panel { height: 700px; }
-      .calendly-inline-widget { height: 700px !important; }
+      /* Hide the dark info panel — show only the calendar */
+      .panel     { display: none; }
+      .cal-panel { height: 100dvh; min-height: 700px; }
+      .calendly-inline-widget { height: 100dvh !important; min-height: 700px !important; }
     }
   </style>
 </head>
