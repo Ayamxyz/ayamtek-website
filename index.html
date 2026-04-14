@@ -633,6 +633,10 @@
       /* Equal-width stacked buttons on mobile — not full-width */
       .hero-actions { flex-direction: column; align-items: flex-start; gap: 12px; }
       .hero-btn     { justify-content: center; min-width: 240px; }
+      /* Steeper marquee cross on small screens */
+      .marquee-ribbon { left: -12%; right: -12%; }
+      .marquee-ribbon.fwd-ribbon { transform: rotate(-5deg); }
+      .marquee-ribbon.rev-ribbon { transform: rotate(5deg); }
     }
     /* ── WORD-BY-WORD HEADLINE ───────────────────────────── */
     .w {
@@ -927,8 +931,8 @@
             <!-- Email -->
             <a
               class="crow crow-email sr sr4"
-              href="mailto:hello@ayamtek.xyz?subject=Enquiry%20via%20Website"
-              role="listitem" aria-label="Email hello@ayamtek.xyz"
+              href="mailto:hello@ayamtek.com?subject=Enquiry%20via%20Website"
+              role="listitem" aria-label="Email hello@ayamtek.com"
             >
               <div class="crow-icon" aria-hidden="true">
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#101981" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
